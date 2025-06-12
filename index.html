@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gara delle pappette Piovego 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FF6B6B, #4ECDC4);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🍎🍌🍑🍐🍇';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .podium {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 15px;
+            background: linear-gradient(180deg, #f8f9fa, #e9ecef);
+        }
+
+        .podium-place {
+            text-align: center;
+            transition: transform 0.3s ease;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .podium-place:hover {
+            transform: scale(1.05);
+        }
+
+        .podium-step {
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .first-place .podium-step {
+            width: 350px;
+            height: 100px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+
+        .second-place .podium-step {
+            width: 300px;
+            height: 90px;
+            background: linear-gradient(135deg, #C0C0C0, #A0A0A0);
+        }
+
+        .third-place .podium-step {
+            width: 250px;
+            height: 80px;
+            background: linear-gradient(135deg, #CD7F32, #B8860B);
+        }
+
+        .medal {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            animation: spin 4s linear infinite;
+        }
+
+        .place-number {
+            font-size: 2.2rem;
+            margin-right: 15px;
+        }
+
+        .place-name {
+            font-size: 1.1rem;
+            text-align: center;
+            line-height: 1.3;
+            flex-grow: 1;
+        }
+
+        .podium-step {
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes spin {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+
+        .full-ranking {
+            padding: 40px;
+        }
+
+        .full-ranking h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .ranking-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .ranking-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .ranking-table td {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .ranking-table tr:hover td {
+            background-color: #f8f9fa;
+        }
+
+        .ranking-table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        .position {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3rem;
+        }
+
+        .participant-name {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .trophy-icon {
+            margin-right: 10px;
+        }
+
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .podium {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .podium-place {
+                margin-bottom: 20px;
+            }
+            
+            .ranking-table th,
+            .ranking-table td {
+                padding: 15px 10px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 Gara delle pappette Piovego 2025 🏆</h1>
+            <p>Classifica Ufficiale della Competizione</p>
+        </div>
+
+        <div class="podium">
+            <div class="podium-place first-place">
+                <div class="podium-step">
+                    <div class="medal">🥇</div>
+                    <div class="place-number">1°</div>
+                    <div class="place-name">Pappetta Mela Banana</div>
+                </div>
+            </div>
+            
+            <div class="podium-place second-place">
+                <div class="podium-step">
+                    <div class="medal">🥈</div>
+                    <div class="place-number">2°</div>
+                    <div class="place-name">Pappetta Mela Albicocca</div>
+                </div>
+            </div>
+            
+            <div class="podium-place third-place">
+                <div class="podium-step">
+                    <div class="medal">🥉</div>
+                    <div class="place-number">3°</div>
+                    <div class="place-name">Pappetta Mela Pesca</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-ranking">
+            <h2>🍎 Classifica Completa 🍎</h2>
+            <table class="ranking-table">
+                <thead>
+                    <tr>
+                        <th>Posizione</th>
+                        <th>Pappetta</th>
+                        <th>Riconoscimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="position">1°</span></td>
+                        <td class="participant-name">🍌 Pappetta Mela Banana</td>
+                        <td><span class="trophy-icon">🏆</span>Campione 2025</td>
+                    </tr>
+                    <tr>
+                        <td><span class="position">2°</span></td>
+                        <td class="participant-name">🍑 Pappetta Mela Albicocca</td>
+                        <td><span class="trophy-icon">🥈</span>Vice Campione</td>
+                    </tr>
+                    <tr>
+                        <td><span class="position">3°</span></td>
+                        <td class="participant-name">🍑 Pappetta Mela Pesca</td>
+                        <td><span class="trophy-icon">🥉</span>Terzo Posto</td>
+                    </tr>
+                    <tr>
+                        <td><span class="position">4°</span></td>
+                        <td class="participant-name">🍐 Pappetta Mela Pera</td>
+                        <td><span class="trophy-icon">🏅</span>Partecipazione</td>
+                    </tr>
+                    <tr>
+                        <td><span class="position">5°</span></td>
+                        <td class="participant-name">🍇 Pappetta Mela Prugna</td>
+                        <td><span class="trophy-icon">🏅</span>Partecipazione</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>🎉 Congratulazioni a tutti i partecipanti della Gara delle pappette Piovego 2025! 🎉</p>
+            <p>Un evento indimenticabile pieno di sapori e divertimento!</p>
+        </div>
+    </div>
+
+    <script>
+        // Aggiungi un po' di interattività
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRows = document.querySelectorAll('.ranking-table tbody tr');
+            
+            tableRows.forEach((row, index) => {
+                row.style.animationDelay = `${index * 0.1}s`;
+                row.style.animation = 'fadeInUp 0.6s ease forwards';
+            });
+        });
+
+        // Aggiungi l'animazione CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .ranking-table tbody tr {
+                opacity: 0;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
